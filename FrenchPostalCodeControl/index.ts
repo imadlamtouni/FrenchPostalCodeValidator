@@ -69,7 +69,7 @@ export class FrenchPostalCodeValidatorControl
   public refreshData(evt: Event | null): void {
     this._postalCodeValue = this._inputElement.value;
     this._cityNameValue = "";
-    if (this._postalCodeValue) {     
+    if (this._postalCodeValue) {
       this._inputImgElement.removeAttribute("hidden");
       fetch(
         "https://apicarto.ign.fr/api/codes-postaux/communes/" +
@@ -79,7 +79,7 @@ export class FrenchPostalCodeValidatorControl
           if (response.ok) {
             return response.json();
           }
-          this.findAndSetImage(notValidFileNameIcon);          
+          this.findAndSetImage(notValidFileNameIcon);
           this._notifyOutputChanged();
           return Promise.reject(response);
         })
@@ -89,6 +89,7 @@ export class FrenchPostalCodeValidatorControl
           this._notifyOutputChanged();
           console.log(body);
         })
+
         .catch((error) => {
           console.error("error in execution", error);
         });
@@ -152,7 +153,7 @@ export class FrenchPostalCodeValidatorControl
       }
     );
   }
-  
+
   /**
    * Called when a change is detected in the phone number input
    * @param filetype Name of the image extension
