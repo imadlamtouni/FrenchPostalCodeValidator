@@ -9,6 +9,7 @@ This component is using a public API to check the code postal and to get the nam
 For more information, you can visit the official website of the api:
 https://api.gouv.fr/les-api/api_carto_codes_postaux
 https://api.gouv.fr/documentation/api_carto_codes_postaux
+https://apicarto.ign.fr/api/doc/pdf/docUser_moduleCodesPostaux.pdf
 
 
 ### Configuration
