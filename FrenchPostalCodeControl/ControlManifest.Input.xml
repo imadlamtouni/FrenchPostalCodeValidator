@@ -19,33 +19,15 @@
     <!--/external-service-usage-->
     
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="postalCodeValue" display-name-key="FrenchPostalCodeValidatorControl_postalCodeValue" description-key="Postal Code Value" of-type="SingleLine.Text" usage="bound" required="true" />
-    <property name="cityNameValue" display-name-key="FrenchPostalCodeValidatorControl_cityNameValue" description-key="City value" of-type="SingleLine.Text" usage="bound"  />
+    <property name="postalCodeValue" display-name-key="FrPostalCodeValidatorCntrl_postalCodeValue" description-key="Postal Code Value" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="cityNameValue" display-name-key="FrPostalCodeValidatorCntrl_cityNameValue" description-key="City value" of-type="SingleLine.Text" usage="bound"  />
     
-    <!--property name="displayStatusIcon" display-name-key="FrenchPostalCodeControl_displayStatusIcon" description-key="Display a status icon if the postal code is correct ?" of-type="Enum" usage="input" required="true" default-value="0">
-      <value name="Yes" display-name-key="Yes" description-key="Display the icon">1</value>
-      <value name="No" display-name-key="No" description-key="Do not display the icon">0</value>
-    </property-->
-    <!--Property node's of-type attribute can be of-type-group attribute.
-      Example:
-      <type-group name="numbers">
-        <type>Whole.None</type>
-        <type>Currency</type>
-        <type>FP</type>
-        <type>Decimal</type>
-      </type-group>
-      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
-    -->
     <resources>
       <code path="index.ts" order="1"/>      
       <img path="img/notValidIcon.png" />
       <img path="img/validIcon.png" />
       <css path="css/FrenchPostalCodeControl.css" order="1" />
-      <!-- UNCOMMENT TO ADD MORE RESOURCES
-      <css path="css/FrenchPostalCodeControl.css" order="1" />
-      <resx path="strings/FrenchPostalCodeControl.1033.resx" version="1.0.0" />
-      -->
-    </resources>
+          </resources>
     <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
     <feature-usage>
       <uses-feature name="Device.captureAudio" required="true" />
