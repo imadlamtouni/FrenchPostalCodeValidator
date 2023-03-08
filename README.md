@@ -17,3 +17,7 @@ For more information, you can visit the official website of the api:
 |:---------|:---------------|:----:|
 |FrenchPostalCodeValidatorControl_postalCodeValue|SingleLine.Text|Yes|
 |FrenchPostalCodeValidatorControl_cityNameValue|SingleLine.Text|No|
+
+### Demo
+![CPT2303081551-493x216](https://user-images.githubusercontent.com/127231787/223746115-027506ea-df2a-4ba1-8e82-170f2caf65af.gif)
+
