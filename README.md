@@ -1,6 +1,6 @@
 # FrenchPostalCodeValidator
 
-The component allows to check if a french postal code is valid or not. If the postal code is valid, it will return the city name which you can map into another field.
+The component allows to check if a french postal code is valid or not. If the postal code is valid, it will return the city name which you can map or not into another field.
 
 This component is using a public API to check the code postal and to get the name of the city.
 
