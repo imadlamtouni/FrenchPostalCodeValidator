@@ -89,7 +89,6 @@ export class FrenchPostalCodeValidatorControl
           this._notifyOutputChanged();
           console.log(body);
         })
-
         .catch((error) => {
           console.error("error in execution", error);
         });
