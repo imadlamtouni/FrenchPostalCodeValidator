@@ -14,6 +14,9 @@ export class FrenchPostalCodeValidatorControl
 
   private _inputElement: HTMLInputElement;
   private _inputImgElement: HTMLElement;
+  private _errorIconLabelElement: HTMLElement;
+  private _errorLabelElement : HTMLElement;
+  private _errorContainer: HTMLElement;
 
   private _context: ComponentFramework.Context<IInputs>;
   private _refreshData: EventListenerOrEventListenerObject;
@@ -54,21 +57,36 @@ export class FrenchPostalCodeValidatorControl
 
     this._inputElement = document.createElement("input");
     this._inputElement.setAttribute("type", "text");
-    this._inputElement.setAttribute("class", "pcfinputcontrol");
+    this._inputElement.classList.add("class", "pcfinputcontrol");
     this._inputElement.addEventListener("change", this.refreshData.bind(this));
     this._inputElement.value = this._postalCodeValue;
 
     this._inputImgElement = document.createElement("img");
-    this._inputImgElement.setAttribute("class", "pcfimagecontrol");
+    this._inputImgElement.classList.add("class", "pcfimagecontrol");
     this._inputImgElement.setAttribute("height", "24px");
+
+    this._errorIconLabelElement = document.createElement("label");
+    this._errorIconLabelElement.innerHTML = "";
+    this._errorIconLabelElement.classList.add("iconError");
+
+    this._errorLabelElement = document.createElement("label");
+    
+    this._errorContainer = document.createElement("div");
+    this._errorContainer.classList.add("Error");
+    this._errorContainer.appendChild(this._errorIconLabelElement);
+    this._errorContainer.appendChild(this._errorLabelElement);
 
     container.appendChild(this._inputElement);
     container.appendChild(this._inputImgElement);
+    container.appendChild(this._errorContainer);
   }
 
   public refreshData(evt: Event | null): void {
     this._postalCodeValue = this._inputElement.value;
     this._cityNameValue = "";
+    this._inputElement.classList.remove("incorrect");
+    this._errorContainer.classList.remove("inputError");
+
     if (this._postalCodeValue) {
       this._inputImgElement.removeAttribute("hidden");
       fetch(
@@ -78,10 +96,9 @@ export class FrenchPostalCodeValidatorControl
         .then((response) => {
           if (response.ok) {
             return response.json();
-          }
-          this.findAndSetImage(notValidFileNameIcon);
-          this._notifyOutputChanged();
-          return Promise.reject(response);
+          }else{      
+            return Promise.reject(response);
+          }    
         })
         .then((body) => {
           this.findAndSetImage(validFileNameIcon);
@@ -90,6 +107,14 @@ export class FrenchPostalCodeValidatorControl
           console.log(body);
         })
         .catch((error) => {
+          if(error.status === 400){
+            this.findAndSetImage(notValidFileNameIcon);
+          }else{
+            this._inputElement.classList.add("incorrect");            
+            this._errorLabelElement.innerHTML = "Error when calling API: "+error.url+", Status: "+error.status;
+            this._errorContainer.classList.add("inputError");
+          }          
+          this._notifyOutputChanged();
           console.error("error in execution", error);
         });
     } else {

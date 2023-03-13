@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest>
-  <control namespace="ila" constructor="FrenchPostalCodeValidatorControl" version="0.0.1" display-name-key="ila.FrenchPostalCodeValidatorControl" description-key="French Postal Code validator for PCF" control-type="standard" >
+  <control namespace="ila" constructor="FrenchPostalCodeValidatorControl" version="0.0.2" display-name-key="ila.FrenchPostalCodeValidatorControl" description-key="French Postal Code validator for PCF" control-type="standard">
     <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
     If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
     Example1:
@@ -12,22 +12,20 @@
       </external-service-usage>
     -->
     <!-- external-service-usage enabled="false" -->
-      <!--UNCOMMENT TO ADD EXTERNAL DOMAINS
+    <!--UNCOMMENT TO ADD EXTERNAL DOMAINS
       <domain></domain>
       <domain></domain>
       -->
     <!--/external-service-usage-->
-    
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="postalCodeValue" display-name-key="FrPostalCodeValidatorCntrl_postalCodeValue" description-key="Postal Code Value" of-type="SingleLine.Text" usage="bound" required="true" />
-    <property name="cityNameValue" display-name-key="FrPostalCodeValidatorCntrl_cityNameValue" description-key="City value" of-type="SingleLine.Text" usage="bound"  />
-    
+    <property name="cityNameValue" display-name-key="FrPostalCodeValidatorCntrl_cityNameValue" description-key="City value" of-type="SingleLine.Text" usage="bound" />
     <resources>
-      <code path="index.ts" order="1"/>      
+      <code path="index.ts" order="1" />
       <img path="img/notValidIcon.png" />
       <img path="img/validIcon.png" />
       <css path="css/FrenchPostalCodeControl.css" order="1" />
-          </resources>
+    </resources>
     <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
     <feature-usage>
       <uses-feature name="Device.captureAudio" required="true" />
